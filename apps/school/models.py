@@ -1,9 +1,11 @@
 from django.db import models
+from django.core import validators
+
 
 class Student(models.Model):
     name = models.CharField(max_length = 100)
     email = models.EmailField(blank = False, max_length = 128)
-    cpf = models.CharField(max_length = 11)
+    cpf = models.CharField(max_length = 11, unique = True)
     birth_date = models.DateField()
     phone_number = models.CharField(max_length = 14)
 
@@ -18,7 +20,7 @@ class Course(models.Model):
         ('A', 'Advanced')
     )
 
-    code = models.CharField(max_length = 10)
+    code = models.CharField(max_length = 10, unique = True, validators = [validators.MinLengthValidator(3)])
     description = models.TextField(blank = False, max_length = 256)
     level = models.CharField(blank = False, null = False, choices = LEVEL_OPTIONS, default = 'B', max_length = 1)
 
