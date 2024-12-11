@@ -23,4 +23,8 @@
 [Trello Project Backlog](https://trello.com/b/HV6e82V5/django-rest-framework-escola-curso-03)
 [Django REST Framework Docs](https://www.django-rest-framework.org/)
 [Course 03 Github Repo](https://github.com/uranolais/drf-escola-curso-03)
+[drf-yasg: Generate Swagger/OpenAPI 2.0 specifications from a Django Rest Framework API.](https://github.com/axnsan12/drf-yasg/)
 [Article: Django Upload de imagens em uma API Rest](https://www.alura.com.br/artigos/django-upload-de-imagens-em-uma-api-rest)
+[Given GitHub frontend repository](https://github.com/alura-cursos/3697-django-frontend)
+[CORS: Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+[Package: Django CORS Headers](https://pypi.org/project/django-cors-headers/)
