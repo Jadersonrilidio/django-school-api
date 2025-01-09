@@ -159,3 +159,5 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8042',
     'http://127.0.0.1:8042',
 ]
+
+TEST_RUNNER = 'setup.test_runner.AppsDiscoverRunner'

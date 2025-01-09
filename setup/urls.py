@@ -6,7 +6,7 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="School API DOcumentation",
+        title="School API Documentation",
         default_version='v1',
         description="School App API Documentation with Swagger / OpenAPI 2.0",
         terms_of_service="https://www.google.com/policies/terms/",

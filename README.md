@@ -28,3 +28,14 @@
 - [Given GitHub frontend repository](https://github.com/alura-cursos/3697-django-frontend) 
 - [CORS: Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - [Package: Django CORS Headers](https://pypi.org/project/django-cors-headers/)
+
+## Project Related and Used Links - Part 04
+
+- [Course: Django REST Framework: trabalhando com permissões, documentação, limitações, CORS e deploy na AWS](https://cursos.alura.com.br/course/django-rest-framework-construindo-apis-restful-zero)
+- [Trello Project Backlog](https://trello.com/b/eaZ3PzrC/django-rest-framework-escola-curso-04)
+- [Django REST Framework Docs](https://www.django-rest-framework.org/)
+- [Course 04 Github Repo](https://github.com/uranolais/drf-escola-curso-04)
+- [Testing in Django](https://docs.djangoproject.com/en/5.1/topics/testing/)
+- [unittest](https://docs.python.org/3/library/unittest.html#module-unittest)
+- [Django REST Framework - Testing](https://www.django-rest-framework.org/api-guide/testing/)
+- [Django REST Framework - Testing - Forcing Authentication](https://www.django-rest-framework.org/api-guide/testing/#forcing-authentication)
