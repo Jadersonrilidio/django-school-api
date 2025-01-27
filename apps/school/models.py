@@ -37,3 +37,6 @@ class Enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete = models.CASCADE)
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     period = models.CharField(blank = False, null = False, choices = PERIOD_OPTIONS, default = 'M', max_length = 1)
+
+    def period_name(self):
+        return self.get_period_display()

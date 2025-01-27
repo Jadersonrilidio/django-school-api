@@ -15,18 +15,18 @@ class AuthenticationUserTestCase(APITestCase):
     def test_user_can_authenticate_given_correct_credential(self):
         """Test to verify user authentication provided correct credentials"""
         user = authenticate(request=None, username="jay", password="admin123")
-        self.assertTrue(user is not None and user.is_authenticated)
+        self.assertTrue((user is not None) and user.is_authenticated)
         self.assertEqual(user, self.user)
 
     def test_user_cannot_authenticate_given_incorrect_username(self):
         """Test to verify user authentication fails provided incorrect username credential"""
         user = authenticate(request=None, username="anotherjay", password="admin123")
-        self.assertTrue(user is None)
+        self.assertFalse((user is not None) and user.is_authenticated)
 
     def test_user_cannot_authenticate_given_incorrect_password(self):
         """Test to verify user authentication fails provided incorrect password credential"""
         user = authenticate(request=None, username="jay", password="anotheradmin123")
-        self.assertTrue(user is None)
+        self.assertFalse((user is not None) and user.is_authenticated)
 
     def test_get_request_authorized(self):
         """Test verifies if GET request is authorized"""

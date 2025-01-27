@@ -39,3 +39,24 @@
 - [unittest](https://docs.python.org/3/library/unittest.html#module-unittest)
 - [Django REST Framework - Testing](https://www.django-rest-framework.org/api-guide/testing/)
 - [Django REST Framework - Testing - Forcing Authentication](https://www.django-rest-framework.org/api-guide/testing/#forcing-authentication)
+
+## To improve/implement
+
+- [DONE] Response data hidration to objects using serializers
+- [DONE] Rewatch all course videos
+- [DONE] Complete tests in test_courses_route.py tests
+- [DONE] Complete tests in test_enrollments_route.py tests
+- [DONE] Review test_authentication.py tests
+- [DONE] Review test_models.py tests
+- [DONE] Review test_serializers.py tests
+- [DONE] Make a Enrollment test in the test_fixtures test
+- [NOTWORTH] EXTRA - Review testing features using Thunder client
+- [DONE] DOUBT - Can I do test on models using fixtures? does it worth?
+- [DONE] DOUBT - Can I integrate serializers test with fixtures? are there any advantages on doing that approach?
+
+- [] BUGFIX - rewrite Enrollment PERIOD_OPTIONS from 'Morming' to 'Morning'
+- [] EXTRA - Improve overall test coverage (on implemented tests and other untested features)
+- [] EXTRA - Read Django and DRF testing features
+- [] DOUBT - What does the reverse function do in DRF testing?
+- [] DOUBT - How can I test model validations on tests? (e.g. create a Student with 'name' field bigger than 100 chars)
+- [] DOUBT - How to test the validation steps inserted into the model serializers? (e.g. create Student with invalid cpf name etc)

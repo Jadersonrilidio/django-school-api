@@ -5,143 +5,118 @@ from apps.school.serializers import StudentSerializer, CourseSerializer, Enrollm
         StudentSerializerV2, StudentEnrollmentsListSerializer, CourseEnrollmentsListSerializer
 
 
-class StudentSerializerTestCase(TestCase):
+class BaseSerializerTestCase(TestCase):
+    """Base TestCase class for serializer tests, load fixtures and set up shared test data"""
+    fixtures = ['db_prototype.json']
+
+    @classmethod
+    def setUpTestData(cls):
+        cls.student = Student.objects.get(pk=1)
+        cls.course = Course.objects.get(pk=1)
+        cls.enrollment = Enrollment.objects.get(pk=1)
+
+
+class StudentSerializerTestCase(BaseSerializerTestCase):
     def setUp(self):
-        self.student = Student(
-            name = 'Test Model',
-            email = 'testmodel@example.com',
-            cpf = '20479304050',
-            birth_date = '2023-02-02',
-            phone_number = '31 98765-3456',
-        )
         self.serialized_student = StudentSerializer(instance=self.student)
 
     def test_verify_student_serialized_field_keys_are_correct(self):
-        """
-        Test to verify if the serialized Student Model contains all expected fields
-        """
+        """Test to verify if the serialized Student Model contains all expected fields"""
         data = self.serialized_student.data
         self.assertEqual(set(data.keys()), set(['id', 'name', 'email', 'cpf', 'birth_date', 'phone_number']))
 
     def test_verify_student_serialized_field_values_are_correct(self):
-        """
-        Test to verify if the serialized Student Model fields contains the exact values
-        """
+        """Test to verify if the serialized Student Model fields contains the exact values"""
         data = self.serialized_student.data
-        self.assertEqual(data['id'], self.student.id)
-        self.assertEqual(data['name'], self.student.name)
-        self.assertEqual(data['email'], self.student.email)
-        self.assertEqual(data['cpf'], self.student.cpf)
-        self.assertEqual(data['birth_date'], self.student.birth_date)
-        self.assertEqual(data['phone_number'], self.student.phone_number)
+        self.assertEqual(list(data.values()), [self.student.id, self.student.name, self.student.email, self.student.cpf, self.student.birth_date.isoformat(), self.student.phone_number])
 
 
-
-class CourseSerializerTestCase(TestCase):
+class CourseSerializerTestCase(BaseSerializerTestCase):
     def setUp(self):
-        self.course = Course(
-            code='MAT101',
-            description='Applied Math',
-            level='Advanced',
-        )
         self.serialized_course = CourseSerializer(instance=self.course)
 
     def test_verify_course_serialized_field_keys_are_correct(self):
-        """
-        Test to verify if the serialized Course Model contains all expected fields
-        """
+        """Test to verify if the serialized Course Model contains all expected fields"""
         data = self.serialized_course.data
         self.assertEqual(set(data.keys()), set(['id', 'code', 'description', 'level']))
 
     def test_verify_course_serialized_field_values_are_correct(self):
-        """
-        Test to verify if the serialized Course Model fields contains the exact values
-        """
+        """Test to verify if the serialized Course Model fields contains the exact values"""
         data = self.serialized_course.data
-        self.assertEqual(data['id'], self.course.id)
-        self.assertEqual(data['code'], self.course.code)
-        self.assertEqual(data['description'], self.course.description)
-        self.assertEqual(data['level'], self.course.level)
+        self.assertEqual(list(data.values()), [self.course.id, self.course.code, self.course.description, self.course.level])
 
 
-class EnrollmentSerializerTestCase(TestCase):
+class EnrollmentSerializerTestCase(BaseSerializerTestCase):
     def setUp(self):
-        self.student = Student(
-            id = 101,
-            name = 'Test Model',
-            email = 'testmodel@example.com',
-            cpf = '20479304050',
-            birth_date = '2023-02-02',
-            phone_number = '31 98765-3456',
-        )
-        self.course = Course(
-            id = 101,
-            code='MAT101',
-            description='Applied Math',
-            level='Advanced',
-        )
-        self.enrollment = Enrollment(
-            student=self.student,
-            course=self.course,
-            period='Morning',
-        )
         self.serialized_enrollment = EnrollmentSerializer(instance=self.enrollment)
 
     def test_verify_enrollment_serialized_field_keys_are_correct(self):
-        """
-        Test to verify if the serialized Enrollment Model contains all expected fields
-        """
+        """Test to verify if the serialized Enrollment Model contains all expected fields"""
         data = self.serialized_enrollment.data
         self.assertEqual(set(data.keys()), set(['id', 'student', 'course', 'period']))
 
     def test_verify_enrollment_serialized_field_values_are_correct(self):
-        """
-        Test to verify if the serialized Enrollment Model fields contains the exact values
-        """
+        """Test to verify if the serialized Enrollment Model fields contains the exact values"""
         data = self.serialized_enrollment.data
-        self.assertEqual(data['id'], self.enrollment.id)
-        self.assertEqual(data['student'], self.enrollment.student.id)
-        self.assertEqual(data['course'], self.enrollment.course.id)
-        self.assertEqual(data['period'], self.enrollment.period)
+        self.assertEqual(list(data.values()), [self.enrollment.id, self.enrollment.period, self.enrollment.student.id, self.enrollment.course.id])
 
 
-# todo
-class StudentSerializerV2TestCase(TestCase):
+class StudentSerializerV2TestCase(BaseSerializerTestCase):
     def setUp(self):
-        return super().setUp()
+        self.serialized_student = StudentSerializerV2(instance=self.student)
     
     def test_verify_student_v2_serialized_field_keys_are_correct(self):
-        """
-        Test to verify if the v2 serialized Student Model contains all expected fields
-        """
-        pass
+        """Test to verify if the v2 serialized Student Model contains all expected fields"""
+        data = self.serialized_student.data
+        self.assertEqual(set(data.keys()), set(['id', 'name', 'email', 'phone_number']))
 
     def test_verify_student_v2_serialized_field_values_are_correct(self):
-        """
-        Test to verify if the v2 serialized Student Model fields contains the exact values
-        """
-        pass
+        """Test to verify if the v2 serialized Student Model fields contains the exact values"""
+        data  = self.serialized_student.data
+        self.assertEqual(list(data.values()), [self.student.id, self.student.name, self.student.email, self.student.phone_number])
 
 
-# todo
-class StudentEnrollmentsListSerializerTestCase(TestCase):
+class StudentEnrollmentsListSerializerTestCase(BaseSerializerTestCase):
     def setUp(self):
-        pass
+        self.student_enrollments_list = Enrollment.objects.filter(student_id=self.student.id)
+        self.serialized_student_enrollments_list = StudentEnrollmentsListSerializer(self.student_enrollments_list, many=True)
 
-    def test_verify_serialized_enrollments_list_per_student_are_retrieved_correctly(self):
-        """
-        Description goes here...
-        """
-        pass
+    def test_verify_serialized_students_enrollments_list_have_the_correct_lenght(self):
+        """Test if the returned enrollments list have the correct number of student enrollments"""
+        data = self.serialized_student_enrollments_list.data
+        self.assertEqual(len(data), 1)
+
+    def test_verify_serialized_student_enrollments_list_have_correct_keys(self):
+        """Test if the returned enrollments list have the correct keys on each enrollment object"""
+        data = self.serialized_student_enrollments_list.data
+        for enrollment in data:
+            self.assertEqual(set(enrollment.keys()), set(['course', 'period']))
+
+    def test_verify_serialized_student_enrollments_list_have_correct_values(self):
+        """Test if the returned enrollments list have the correct values on each enrollment object"""
+        data = self.serialized_student_enrollments_list.data
+        for data, expected in zip(data, self.student_enrollments_list):
+            self.assertEqual(list(data.values()), [expected.course.description, expected.period_name()])
 
 
-# todo
-class CourseEnrollmentsListSerializerTestCase(TestCase):
+class CourseEnrollmentsListSerializerTestCase(BaseSerializerTestCase):
     def setUp(self):
-        pass
+        self.course_enrollments_list = Enrollment.objects.filter(course_id=self.course.id)
+        self.serialized_course_enrollments_list = CourseEnrollmentsListSerializer(self.course_enrollments_list, many=True)
 
-    def test_verify_serialized_enrollments_list_per_course_are_retrieved_correctly(self):
-        """
-        Description goes here...
-        """
-        pass
+    def test_verify_serialized_course_enrollments_list_have_the_correct_lenght(self):
+        """Test if the returned enrollments list have the correct number of course enrollments"""
+        data = self.serialized_course_enrollments_list.data
+        self.assertEqual(len(data), 2)
+
+    def test_verify_serialized_course_enrollments_list_have_correct_keys(self):
+        """Test if the returned enrollments list have the correct keys for each enrollment object"""
+        data = self.serialized_course_enrollments_list.data
+        for enrollment in data:
+            self.assertEqual(set(enrollment.keys()), set(['student_name']))
+
+    def test_verify_serialized_course_enrollments_list_have_correct_values(self):
+        """Test if the returned enrollments list have the correct values for each enrollment object"""
+        data = self.serialized_course_enrollments_list.data
+        for data, expected in zip(data, self.course_enrollments_list):
+            self.assertEqual(list(data.values()), [expected.student.name])
