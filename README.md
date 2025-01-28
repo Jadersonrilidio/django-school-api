@@ -8,6 +8,11 @@
 - [Article: How dodes DRF Serialization Works](https://www.alura.com.br/artigos/serializer-como-funciona-django-rest-framework)
 - [Course 01 Github Repo](https://github.com/uranolais/drf-escola-curso-01)
 
+### TEMP - To improve/implement - Part 01
+
+- [] Rewatch all course videos
+- [] 
+
 ## Project Related and Used Links - Part 02
 
 - [Course: Django REST Framework: trabalhando com validações, paginação, filtros e versionamento em uma API](https://cursos.alura.com.br/course/django-rest-framework-validacoes-paginacao-filtros-versionamento-api)
@@ -16,6 +21,11 @@
 - [Django Faker](https://faker.readthedocs.io/)
 - [Django Rest Framework: Versionamento](https://www.alura.com.br/artigos/django-rest-framework-versionamento)
 - [Course 02 Github Repo](https://github.com/uranolais/drf-escola-curso-02)
+
+### TEMP - To improve/implement - Part 02
+
+- [] Rewatch all course videos
+- [] 
 
 ## Project Related and Used Links - Part 03
 
@@ -29,6 +39,11 @@
 - [CORS: Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - [Package: Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 
+### TEMP - To improve/implement - Part 03
+
+- [] Rewatch all course videos
+- [] 
+
 ## Project Related and Used Links - Part 04
 
 - [Course: Django REST Framework: trabalhando com permissões, documentação, limitações, CORS e deploy na AWS](https://cursos.alura.com.br/course/django-rest-framework-construindo-apis-restful-zero)
@@ -40,7 +55,7 @@
 - [Django REST Framework - Testing](https://www.django-rest-framework.org/api-guide/testing/)
 - [Django REST Framework - Testing - Forcing Authentication](https://www.django-rest-framework.org/api-guide/testing/#forcing-authentication)
 
-## To improve/implement
+### TEMP - To improve/implement - Part 04
 
 - [DONE] Response data hidration to objects using serializers
 - [DONE] Rewatch all course videos
