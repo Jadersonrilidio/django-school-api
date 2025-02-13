@@ -8,10 +8,6 @@
 - [Article: How dodes DRF Serialization Works](https://www.alura.com.br/artigos/serializer-como-funciona-django-rest-framework)
 - [Course 01 Github Repo](https://github.com/uranolais/drf-escola-curso-01)
 
-### TEMP - To improve/implement - Part 01
-
-- [] Rewatch all course videos
-- [] 
 
 ## Project Related and Used Links - Part 02
 
@@ -22,10 +18,6 @@
 - [Django Rest Framework: Versionamento](https://www.alura.com.br/artigos/django-rest-framework-versionamento)
 - [Course 02 Github Repo](https://github.com/uranolais/drf-escola-curso-02)
 
-### TEMP - To improve/implement - Part 02
-
-- [] Rewatch all course videos
-- [] 
 
 ## Project Related and Used Links - Part 03
 
@@ -39,10 +31,6 @@
 - [CORS: Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - [Package: Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 
-### TEMP - To improve/implement - Part 03
-
-- [] Rewatch all course videos
-- [] 
 
 ## Project Related and Used Links - Part 04
 
@@ -54,6 +42,7 @@
 - [unittest](https://docs.python.org/3/library/unittest.html#module-unittest)
 - [Django REST Framework - Testing](https://www.django-rest-framework.org/api-guide/testing/)
 - [Django REST Framework - Testing - Forcing Authentication](https://www.django-rest-framework.org/api-guide/testing/#forcing-authentication)
+
 
 ### TEMP - To improve/implement - Part 04
 

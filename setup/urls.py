@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from apps.school.urls import school_urlpatterns
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from apps.school.urls import school_urlpatterns
+
 schema_view = get_schema_view(
-    openapi.Info(
+    info = openapi.Info(
         title="School API Documentation",
         default_version='v1',
         description="School App API Documentation with Swagger / OpenAPI 2.0",
@@ -13,7 +14,7 @@ schema_view = get_schema_view(
         contact=openapi.Contact(email="contact@snippets.local"),
         license=openapi.License(name="MIT License"),
     ),
-    public=True,
+    public = True,
 )
 
 urlpatterns = [

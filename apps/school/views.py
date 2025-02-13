@@ -1,10 +1,8 @@
-from rest_framework import viewsets, generics, filters, throttling
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets, generics, filters, throttling, status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import status
 
 from apps.school.models import Student, Course, Enrollment
 from apps.school.serializers import *
@@ -15,12 +13,10 @@ class StudentViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['name', 'email', 'birth_date']
     search_fields = ['name', 'email', 'cpf']
-
     def get_serializer_class(self):
         if self.request.version == 'v2':
             return StudentSerializerV2
         return StudentSerializer
-    
     @action(detail=True, methods=['get'])
     def enrollments_list(self, request, pk=None):
         student = Student.objects.get(id=pk)
@@ -34,7 +30,6 @@ class CourseViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['id', 'code']
     permission_classes = [IsAuthenticatedOrReadOnly]
-
     @action(detail=True, methods=['get'])
     def enrollments_list(self, request, pk=None):
         course = Course.objects.get(id=pk)
